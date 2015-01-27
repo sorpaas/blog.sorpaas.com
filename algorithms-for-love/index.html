@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Algorithms for Love</title>
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Algorithms for Love">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Algorithms for Love">
+    <meta property="og:description" content="">
+
+    <meta name="twitter:site" content="@sorpaas">
+    
+    <meta name="twitter:creator" content="@sorpaas">
+    
+    <meta name="google-site-verification" content="">
+    
+    <meta property="fb:admins" content="">
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
+
+    <link href="//fonts.googleapis.com/" rel="dns-prefetch">
+    <link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400&subset=latin,latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/main.min.css?v=0befb16148"/>
+
+    <script type="text/javascript">
+      var ga_ua = undefined;
+      
+      var disqus_shortname = undefined; 
+      
+      var enable_pjax = true;
+
+      // Pace Options
+      // ==============
+      window.paceOptions = {
+        catchupTime: 100,
+        minTime: 100,
+        elements: false,
+        restartOnRequestAfter: 500,
+        startOnPageLoad: false
+      }
+
+      // Ghostium Globals
+      // ==============
+      window.GHOSTIUM = {};
+      GHOSTIUM.haveGA = typeof ga_ua !== 'undefined' && ga_ua !== 'UA-XXXXX-X';
+      GHOSTIUM.haveDisqus = typeof disqus_shortname !== 'undefined' && disqus_shortname !== 'example';
+      GHOSTIUM.enablePjax = typeof enable_pjax !== 'undefined' ? enable_pjax : true;
+    </script>
+
+    <script src="/assets/js/head-scripts.min.js?v=0befb16148"></script>
+
+    <link rel="canonical" href="https://blog.sorpaas.com/algorithms-for-love/" />
+    
+    <meta property="og:site_name" content="sorpa&#x27;as" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Algorithms for Love" />
+    <meta property="og:description" content="(Originally from: http://www.strangehorizons.com/2004/20040712/algorithms.shtml) So long as the nurse is in the room to keep an eye on me, I am allowed to dress myself and get ready for Brad. I slip on an..." />
+    <meta property="og:url" content="https://blog.sorpaas.com/algorithms-for-love/" />
+    <meta property="article:published_time" content="2014-01-18T11:28:00.000Z" />
+    <meta property="article:modified_time" content="2014-09-27T18:24:41.107Z" />
+    <meta property="article:tag" content="english" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Algorithms for Love" />
+    <meta name="twitter:description" content="(Originally from: http://www.strangehorizons.com/2004/20040712/algorithms.shtml) So long as the nurse is in the room to keep an eye on me, I am allowed to dress myself and get ready for Brad. I slip on an..." />
+    <meta name="twitter:url" content="https://blog.sorpaas.com/algorithms-for-love/" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "sorpa&#x27;as",
+    "author": {
+        "@type": "Person",
+        "name": "sorpa'as plat",
+        "image": "//www.gravatar.com/avatar/0767b87f9fd3a8dca04caf8f06c0f795?d=404&s=250",
+        "url": "https://blog.sorpaas.com/author/sorpaas-plat",
+        "sameAs": "http://sorpaas.com"
+    },
+    "headline": "Algorithms for Love",
+    "url": "https://blog.sorpaas.com/algorithms-for-love/",
+    "datePublished": "2014-01-18T11:28:00.000Z",
+    "dateModified": "2014-09-27T18:24:41.107Z",
+    "keywords": "english",
+    "description": "(Originally from: http://www.strangehorizons.com/2004/20040712/algorithms.shtml) So long as the nurse is in the room to keep an eye on me, I am allowed to dress myself and get ready for Brad. I slip on an..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.5" />
+    <link rel="alternate" type="application/rss+xml" title="sorpa&#x27;as" href="https://blog.sorpaas.com/rss/" />
+  </head>
+  <body class="post-template tag-english">
+
+    <button data-action="open-drawer" id="drawer-button" class="drawer-button"><i class="fa fa-bars"></i></button>
+    <nav tabindex="-1" class="drawer">
+      <div class="drawer-container">
+        <!--.drawer-search(role="search")-->
+        <ul role="navigation" class="drawer-list">
+          
+          <li class="drawer-list-item">
+            <a href="/" data-pjax>
+              <i class="fa fa-home"></i>Home
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="https://blog.sorpaas.com/rss/">
+              <i class="fa fa-rss"></i>Subscribe to Feed
+            </a>
+          </li>
+          <li class="drawer-list-divider"></li>
+          <li class="drawer-list-item drawer-list-title">
+            Follow me
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://twitter.com/sorpaas" target="_blank">
+              <i class="fa fa-twitter"></i>Twitter
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="http://github.com/sorpaas" target="_blank">
+              <i class="fa fa-github"></i>Github
+            </a>
+          </li>
+          <li class="drawer-list-divider"></li>
+          <li class="drawer-list-item drawer-list-title">
+            Languages
+          </li>
+          <li class="drawer-list-item">
+            <a href="/tag/english">
+              <i class="fa fa-language"></i>English
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="/tag/lojban">          
+              <i class="fa fa-language"></i>Lojban
+            </a>
+          </li>
+          <li class="drawer-list-item">
+            <a href="/tag/chinese">          
+              <i class="fa fa-language"></i>Chinese
+            </a>
+          </li>
+          
+          
+        </ul>
+      </div>
+    </nav>
+
+    <div class="drawer-overlay"></div>
+    <main id="container" role="main" class="container">
+      <div class="surface">
+        <div class="surface-container">
+          <div data-pjax-container class="content">
+            
+<section class="wrapper wrapper-post">
+  <div class="wrapper-container">
+    <article itemscope itemtype="http://schema.org/BlogPosting" role="article" class="post post tag-english">
+        <section class="post-container">
+          <header class="post-header">
+            <ul class="post-meta-list">
+              <li class="post-meta-item">
+                <time datetime="2014-01-18" itemprop="datePublished">
+                  a year ago
+                </time>
+              </li>
+                <li class="post-meta-item">
+                    <a itemprop="articleSection" href="/tag/english/" data-pjax>english</a> 
+                </li>
+              <li class="post-meta-item">
+                <a href="#disqus_thread" data-disqus-identifier="3">Comments</a>
+              </li>
+            </ul>
+            <h1 itemprop="name headline" class="post-title"><a href="/algorithms-for-love/" itemprop="url" data-pjax title="Algorithms for Love">Algorithms for Love</a></h1>
+            <!--h2 itemprop="about" class="post-subtitle"></h2-->
+          </header>
+          <aside class="post-side">
+            <div class="post-author">
+                <a href="http://sorpaas.com" class="post-author-avatar">
+                  <img src="//www.gravatar.com/avatar/0767b87f9fd3a8dca04caf8f06c0f795?d=404&amp;s=250" alt="sorpa&#x27;as plat">
+                </a>
+              <div class="post-author-info">
+                <a href="http://sorpaas.com" class="post-author-name">
+                  sorpa&#x27;as plat
+                </a>
+                <p class="post-author-bio"></p>
+              </div>
+            </div>
+          </aside>
+          <div itemprop="articleBody" class="post-body">
+            <p>(Originally from: <a href='http://www.strangehorizons.com/2004/20040712/algorithms.shtml'>http://www.strangehorizons.com/2004/20040712/algorithms.shtml</a>)</p>
+
+<p>So long as the nurse is in the room to keep an eye on me, I am allowed to dress myself and get ready for Brad. I slip on an old pair of jeans and a scarlet turtleneck sweater. I’ve lost so much weight that the jeans hang loosely from the bony points of my hips.</p>
+
+<p>“Let’s go spend the weekend in Salem,” Brad says to me as he walks me out of the hospital, an arm protectively wrapped around my waist, “just the two of us.”</p>
+
+<p>I wait in the car while Dr. West speaks with Brad just outside the hospital doors. I can’t hear them but I know what she’s telling him. “Make sure she takes her Oxetine every four hours. Don’t leave her alone for any length of time.”</p>
+
+<p>Brad drives with a light touch on the pedals, the same way he used to when I was pregnant with Aimée. The traffic is smooth and light, and the foliage along the highway is postcard-perfect. The Oxetine relaxes the muscles around my mouth, and in the vanity mirror I see that I have a beatific smile on my face.</p>
+
+<p>“I love you.” He says this quietly, the way he has always done, as if it were the sound of breathing and heartbeat.</p>
+
+<p>I wait a few seconds. I picture myself opening the door and throwing my body onto the highway but of course I don’t do anything. I can’t even surprise myself.</p>
+
+<p>“I love you too.” I look at him when I say this, the way I have always done, as if it were the answer to some question. He looks at me, smiles, and turns his eyes back to the road.</p>
+
+<p>To him this means that the routines are back in place, that he is talking to the same woman he has known all these years, that things are back to normal. We are just another tourist couple from Boston on a mini-break for the weekend: stay at a bed-and-breakfast, visit the museums, recycle old jokes.</p>
+
+<p>It’s an algorithm for love.</p>
+
+<p>I want to scream.</p>
+
+<hr />
+
+<p>The first doll I designed was called Laura. Clever Laura ™.</p>
+
+<p>Laura had brown hair and blue eyes, fully articulated joints, twenty motors, a speech synthesizer in her throat, two video cameras disguised by the buttons on her blouse, temperature and touch sensors, and a microphone behind her nose. None of it was cutting-edge technology, and the software techniques I used were at least two decades old. But I was still proud of my work. She retailed for fifty dollars.</p>
+
+<p>Not Your Average Toy could not keep up with the orders that were rolling in, even three months before Christmas. Brad, the CEO, went on CNN and MSNBC and TTV and the rest of the alphabet soup until the very air was saturated with Laura.</p>
+
+<p>I tagged along on the interviews to give the demos because, as the VP of Marketing explained to me, I looked like a mother (even though I wasn’t one) and (he didn’t say this, but I could listen between the lines) I was blonde and pretty. The fact that I was Laura’s designer was an afterthought.</p>
+
+<p>The first time I did a demo on TV was for a Hong Kong crew. Brad wanted me to get comfortable with being in front of the cameras before bringing me to the domestic morning shows.</p>
+
+<p>We sat to the side while Cindy, the anchorwoman, interviewed the CEO of some company that made “moisture meters.” I hadn’t slept for forty-eight hours. I was so nervous I’d brought six Lauras with me, just in case five of them decided in concert to break down. Then Brad turned to me and whispered, “What do you think moisture meters are used for?”</p>
+
+<p>I didn’t know Brad that well, having been at Not Your Average Toy for less than a year. I had chatted with him a few times before, but it was all professional. He seemed a very serious, driven sort of guy, the kind you could picture starting his first company while he was still in high school — arbitraging class notes, maybe. I wasn’t sure why he was asking me about moisture meters. Was he trying to see if I was too nervous?</p>
+
+<p>“I don’t know. Maybe for cooking?” I ventured.</p>
+
+<p>“Maybe,” he said. Then he gave me a conspiratorial wink. “But I think the name sounds kind of dirty.”</p>
+
+<p>It was such an unexpected thing, coming from him, that for a moment I almost thought he was serious. Then he smiled, and I laughed out loud. I had a very hard time keeping a straight face while we waited for our turn, and I certainly wasn’t nervous any more.</p>
+
+<p>Brad and the young anchorwoman, Cindy, chatted amiably about Not Your Average Toy’s mission (“Not Average Toys for Not Average Kids”) and how Brad had come up with the idea for Laura. (Brad had nothing to do with the design, of course, since it was all my idea. But his answer was so good it almost convinced me that Laura was really his brainchild.) Then it was time for the dog-and-pony show.</p>
+
+<p>I put Laura on the desk, her face towards the camera. I sat to the side of the desk. “Hello, Laura.”</p>
+
+<p>Laura turned her head to me, the motors so quiet you couldn’t hear their whirr. “Hi! What’s your name?”</p>
+
+<p>“I’m Elena,” I said.</p>
+
+<p>“Nice to meet you,” Laura said. “I’m cold.”</p>
+
+<p>The air conditioning was a bit chilly. I hadn’t even noticed.</p>
+
+<p>Cindy was impressed. “That’s amazing. How much can she say?”</p>
+
+<p>“Laura has a vocabulary of about two thousand English words, with semantic and syntactic encoding for common suffixes and prefixes. Her speech is regulated by a context-free grammar.” The look in Brad’s eye let me know that I was getting too technical. “That means that she’ll invent new sentences and they’ll always be syntactically correct.”</p>
+
+<p>“I like new, shiny, new, bright, new, handsome clothes,” Laura said.</p>
+
+<p>“Though they may not always make sense,” I added.</p>
+
+<p>“Can she learn new words?” Cindy asked.</p>
+
+<p>Laura turned her head the other way, to look at her. “I like learn-ing, please teach me a new word!”</p>
+
+<p>I made a mental note that the speech synthesizer still had bugs that would have to be fixed in the firmware.</p>
+
+<p>Cindy was visibly unnerved by the doll turning to face her on its own and responding to her question.</p>
+
+<p>“Does she” — she searched for the right word — “understand me?”</p>
+
+<p>“No, no.” I laughed. So did Brad. And a moment later Cindy joined us. “Laura’s speech algorithm is augmented with a Markov generator interspersed with-” Brad gave me that look again. “Basically, she just babbles sentences based on keywords in what she hears. And she has a small set of stock phrases that are triggered the same way.”</p>
+
+<p>“Oh, it really seemed like she knew what I was saying. How does she learn new words?”</p>
+
+<p>“It’s very simple. Laura has enough memory to learn hundreds of new words. However, they have to be nouns. You can show her the object while you are trying to teach her what it is. She has some very sophisticated pattern recognition capabilities and can even tell faces apart.”</p>
+
+<p>For the rest of the interview I assured nervous parents that Laura would not require them to read the manual, that Laura would not explode when dropped in water, and no, she would never utter a naughty word, even if their little princesses “accidentally” taught Laura one.</p>
+
+<p>“‘Bye,” Cindy said to Laura at the end of the interview, and waved at her.</p>
+
+<p>“‘Bye,” Laura said. “You are nice.” She waved back.</p>
+
+<p>Every interview followed the same pattern. The moment when Laura first turned to the interviewer and answered a question there was always some awkwardness and unease. Seeing an inanimate object display intelligent behavior had that effect on people. They probably all thought the doll was possessed. Then I would explain how Laura worked and everyone would be delighted. I memorized the non-technical, warm-and-fuzzy answers to all the questions until I could recite them even without my morning coffee. I got so good at it that I sometimes coasted through entire interviews on autopilot, not even paying attention to the questions and letting the same words I heard over and over again spark off my responses.</p>
+
+<p>The interviews, along with all the other marketing tricks, did their job. We had to outsource manufacturing so quickly that for a while every shantytown along the coast of China must have been turning out Lauras.</p>
+
+<hr />
+
+<p>The foyer of the bed-and-breakfast we are staying at is predictably filled with brochures from local attractions. Most of them are witch-themed. The lurid pictures and language somehow manage to convey moral outrage and adolescent fascination with the occult at the same time.</p>
+
+<p>David, the innkeeper, wants us to check out Ye Olde Poppet Shoppe, featuring “Dolls Made by Salem’s Official Witch.” Bridget Bishop, one of the twenty executed during the Salem Witch Trials, was convicted partly based on the hard evidence of “poppets” found in her cellar with pins stuck in them.</p>
+
+<p>Maybe she was just like me, a crazy, grown woman playing with dolls. The very idea of visiting a doll shop makes my stomach turn.</p>
+
+<p>While Brad is asking David about restaurants and possible discounts I go up to our room. I want to be sleeping, or at least pretending to be sleeping, by the time he comes up. Maybe then he will leave me alone, and give me a few minutes to think. It’s hard to think with the Oxetine. There’s a wall in my head, a gauzy wall that tries to cushion every thought with contentment.</p>
+
+<p>If only I can remember what went wrong.</p>
+
+<hr />
+
+<p>For our honeymoon Brad and I went to Europe. We went on the transorbital shuttle, the tickets for which cost more than my yearly rent. But we could afford it. Witty Kimberly ™, our latest model, was selling well, and the stock price was transorbital itself.</p>
+
+<p>When we got back from the shuttleport, we were tired but happy. And I still couldn’t quite believe that we were in our own home, thinking of each other as husband and wife. It felt like playing house. We made dinner together, like we used to when we were dating (like always, Brad was wildly ambitious but couldn’t follow a recipe longer than a paragraph and I had to come and rescue his shrimp étouffée). The familiarity of the routine made everything seem more real.</p>
+
+<p>Over dinner Brad told me something interesting. According to a market survey, over 20% of the customers for Kimberly were not buying it for their kids at all. They played with the dolls themselves.</p>
+
+<p>“Many of them are engineers and comp sci students,” Brad said. “And there are already tons of Net sites devoted to hacking efforts on Kimberly. My favorite one had step-by-step instructions on how to teach Kimberly to make up and tell lawyer jokes. I can’t wait to see the faces of the guys in the legal department when they get to drafting the cease-and-desist letter for that one.”</p>
+
+<p>I could understand the interest in Kimberly. When I was struggling with my problem sets at MIT I would have loved to take apart something like Kimberly to figure out how she worked. How it worked, I corrected myself mentally. Kimberly’s illusion of intelligence was so real that sometimes even I unconsciously gave her, it, too much credit.</p>
+
+<p>“Actually, maybe we shouldn’t try to shut the hacking efforts down,” I said. “Maybe we can capitalize on it. We can release some of the APIs and sell a developer’s kit for the geeks.”</p>
+
+<p>“What do you mean?”</p>
+
+<p>“Well, Kimberly is a toy, but that doesn’t mean only little girls would be interested in her.” I gave up trying to manage the pronouns. “She does, after all, have the most sophisticated, working, natural conversation library in the world.”</p>
+
+<p>“A library that you wrote,” Brad said. Well, maybe I was a little vain about it. But I’d worked damned hard on that library and I was proud of it.</p>
+
+<p>“It would be a shame if the language processing module never got any application besides sitting in a doll that everyone is going to forget in a year. We can release the interface to the modules at least, a programming guide, and maybe even some of the source code. Let’s see what happens and make an extra dollar while we’re at it.” I never got into academic AI research because I couldn’t take the tedium, but I did have greater ambitions than just making talking dolls. I wanted to see smart and talking machines doing something real, like teaching kids to read or helping the elderly with chores.</p>
+
+<p>I knew that he would agree with me in the end. Despite his serious exterior he was willing to take risks and defy expectations. It was why I loved him.</p>
+
+<p>I got up to clear the dishes. His hand reached across the table and grabbed mine. “Those can wait,” he said. He walked around the table, pulling me to him. I looked into his eyes. I loved the fact that I knew him so well I could tell what he was going to say before he said it. Let’s make a baby, I imagined him saying. Those would have been the only words right for that moment.</p>
+
+<p>And so he did.</p>
+
+<hr />
+
+<p>I’m not asleep when Brad finishes asking about restaurants and comes upstairs. In my drugged state, even pretending is too difficult.</p>
+
+<p>Brad wants to go to the pirate museum. I tell him that I don’t want to see anything violent. He agrees immediately. That’s what he wants to hear from his content, recovering wife.</p>
+
+<p>So now we wander around the galleries of the Peabody Essex Museum, looking at the old treasures of the Orient from Salem’s glory days.</p>
+
+<p>The collection of china is terrible. The workmanship in the bowls and saucers is inexcusable. The patterns look like they were traced on by children. According to the placards, these were what the Cantonese merchants exported for foreign consumption. They would never have sold such stuff in China itself.</p>
+
+<p>I read the description written by a Jesuit priest who visited the Cantonese shops of the time.</p>
+
+<p>The craftsmen sat in a line, each with his own brush and specialty. The first drew only the mountains, the next only the grass, the next only the flowers, and the next only the animals. They went on down the line, passing the plates from one to the next, and it took each man only a few seconds to complete his part.</p>
+
+<p>So the “treasures” are nothing more than mass-produced cheap exports from an ancient sweatshop and assembly line. I imagine painting the same blades of grass on a thousand teacups a day: the same routine, repeated over and over, with maybe a small break for lunch. Reach out, pick up the cup in front of you with your left hand, dip the brush, one, two, three strokes, put the cup behind you, rinse and repeat. What a simple algorithm. It’s so human.</p>
+
+<hr />
+
+<p>Brad and I fought for three months before he agreed to produce Aimée, just plain Aimée ™.</p>
+
+<p>We fought at home, where night after night I laid out the same forty-one reasons why we should and he laid out the same thirty-nine reasons why we shouldn’t. We fought at work, where people stared through the glass door at Brad and me gesticulating at each other wildly, silently.</p>
+
+<p>I was so tired that night. I had spent the whole evening locked away in my study, struggling to get the routines to control Aimée’s involuntary muscle spasms right. It had to be right or she wouldn’t feel real, no matter how good the learning algorithms were.</p>
+
+<p>I came up to the bedroom. There was no light. Brad had gone to bed early. He was exhausted too. We had again hurled the same reasons at each other during dinner.</p>
+
+<p>He wasn’t asleep. “Are we going to go on like this?” He asked in the darkness.</p>
+
+<p>I sat down on my side of the bed and undressed. “I can’t stop it,” I said. “I miss her too much. I’m sorry.”</p>
+
+<p>He didn’t say anything. I finished unbuttoning my blouse and turned around. With the moonlight coming through the window I could see that his face was wet. I started crying too.</p>
+
+<p>When we both finally stopped, Brad said, “I miss her too.”</p>
+
+<p>“I know,” I said. But not like me.</p>
+
+<p>“It won’t be anything like her, you know?” He said.</p>
+
+<p>“I know,” I said.</p>
+
+<p>The real Aimée had lived for ninety-one days. Forty-five of those days she’d spent under the glass hood in intensive care, where I could not touch her except for brief doctor-supervised sessions. But I could hear her cries. I could always hear her cries. In the end I tried to break through the glass with my hands, and I beat my palms against the unyielding glass until the bones broke and they sedated me.</p>
+
+<p>I could never have another child. The walls of my womb had not healed properly and never would. By the time that piece of news was given to me Aimée was a jar of ashes in my closet.</p>
+
+<p>But I could still hear her cries.</p>
+
+<p>How many other women were like me? I wanted something to fill my arms, something to learn to speak, to walk, to grow a little, long enough for me to say goodbye, long enough to quiet those cries. But not a real child. I couldn’t deal with another real child. It would feel like a betrayal.</p>
+
+<p>With a little plastiskin, a little synthgel, the right set of motors and a lot of clever programming, I could do it. Let technology heal all wounds.</p>
+
+<p>Brad thought the idea an abomination. He was revolted. He couldn’t understand.</p>
+
+<p>I fumbled around in the dark for some tissues for Brad and me.</p>
+
+<p>“This may ruin us, and the company,” he said.</p>
+
+<p>“I know,” I said. I lay down. I wanted to sleep.</p>
+
+<p>“Let’s do it, then,” he said.</p>
+
+<p>I didn’t want to sleep any more.</p>
+
+<p>“I can’t take it,” he said. “Seeing you like this. Seeing you in so much pain tears me up. It hurts too much.”</p>
+
+<p>I started crying again. This understanding, this pain. Was this what love was about?</p>
+
+<p>Right before I fell asleep Brad said, “Maybe we should think about changing the name of the company.”</p>
+
+<p>“Why?”</p>
+
+<p>“Well, I just realized that ‘Not Your Average Toy’ sounds pretty funny to the dirty-minded.”</p>
+
+<p>I smiled. Sometimes the vulgar is the best kind of medicine.</p>
+
+<p>“I love you.”</p>
+
+<p>“I love you too.”</p>
+
+<hr />
+
+<p>Brad hands me the pills. I obediently take them and put them in my mouth. He watches as I sip from the glass of water he hands me.</p>
+
+<p>“Let me make a few phone calls,” he says. “You take a nap, okay?” I nod.</p>
+
+<p>As soon as he leaves the room I spit out the pills into my hand. I go into the bathroom and rinse out my mouth. I lock the door behind me and sit down on the toilet. I try to recite the digits of pi. I manage fifty-four places. That’s a good sign. The Oxetine must be wearing off.</p>
+
+<p>I look into the mirror. I stare into my eyes, trying to see through to the retinas, matching photoreceptor with photoreceptor, imagining their grid layout. I turn my head from side to side, watching the muscles tense and relax in turn. That effect would be hard to simulate.</p>
+
+<p>But there’s nothing in my face, nothing real behind that surface. Where is the pain, the pain that made love real, the pain of understanding?</p>
+
+<p>“You okay, sweetie?” Brad says through the bathroom door.</p>
+
+<p>I turn on the faucet and splash water on my face. “Yes,” I say. “I’m going to take a shower. Can you get some snacks from that store we saw down the street?”</p>
+
+<p>Giving him something to do reassures him. I hear the door to the room close behind him. I turn off the faucet and look back into the mirror, at the way the water droplets roll down my face, seeking the canals of my wrinkles.</p>
+
+<p>The human body is a marvel to recreate. The human mind, on the other hand, is a joke. Believe me, I know.</p>
+
+<hr />
+
+<p>No, Brad and I patiently explained over and over to the cameras, we had not created an “artificial child.” That was not our intention and that was not what we had done. It was a way to comfort the grieving mothers. If you needed Aimée, you would know.</p>
+
+<p>I would walk down the street and see women walking with bundles carefully held in their arms. And occasionally I would know, I would know beyond a doubt, by the sound of a particular cry, by the way a little arm waved. I would look into the faces of the women, and be comforted.</p>
+
+<p>I thought I had moved on, recovered from the grieving process. I was ready to begin another project, a bigger project that would really satisfy my ambition and show the world my skills. I was ready to get on with my life.</p>
+
+<p>Tara took four years to develop. I worked on her in secret while designing other dolls that would sell. Physically Tara looked like a five-year old girl. Expensive transplant-quality plastiskin and synthgel gave her an ethereal and angelic look. Her eyes were dark and clear, and you could look into them forever.</p>
+
+<p>I never finished Tara’s movement engine. In retrospect that was probably a blessing. As a temporary placeholder during development I used the facial expression engine sent in by the Kimberly enthusiasts at MIT’s Media Lab. Augmented with many more fine micromotors than Kimberly had, she could turn her head, blink her eyes, wrinkle her nose, and generate thousands of convincing facial expressions. Below the neck she was paralyzed.</p>
+
+<p>But her mind, oh, her mind.</p>
+
+<p>I used the best quantum processors and the best solid-state storage matrices to run multi-layered, multi-feedback neural nets. I threw in the Stanford Semantic Database and added my own modifications. The programming was beautiful. It was truly a work of art. The data model alone took me over six months.</p>
+
+<p>I taught her when to smile and when to frown, and I taught her how to speak and how to listen. Each night I analyzed the activation graphs for the nodes in the neural nets, trying to find and resolve problems before they occurred.</p>
+
+<p>Brad never saw Tara while she was in development. He was too busy trying to control the damage from Aimée, and then, later, pushing the new dolls. I wanted to surprise him.</p>
+
+<p>I put Tara in a wheelchair, and I told Brad that she was the daughter of a friend. Since I had to run some errands, could he entertain her while I was gone for a few hours? I left them in my office.</p>
+
+<p>When I came back two hours later, I found Brad reading to her from The Golem of Prague, “‘Come,’ said the Great Rabbi Loew, ‘Open your eyes and speak like a real person!’”</p>
+
+<p>That was just like Brad, I thought. He had his sense of irony.</p>
+
+<p>“All right,” I interrupted him. “Very funny. I get the joke. So how long did it take you?”</p>
+
+<p>He smiled at Tara. “We’ll finish this some other time,” he said. Then he turned to me. “How long did it take me what?”</p>
+
+<p>“To figure it out.”</p>
+
+<p>“Figure out what?”</p>
+
+<p>“Stop kidding around,” I said. “Really, what was it that gave her away?”</p>
+
+<p>“Gave what away?” Brad and Tara said at the same time.</p>
+
+<hr />
+
+<p>Nothing Tara ever said or did was a surprise to me. I could predict everything she would say before she said it. I’d coded everything in her, after all, and I knew exactly how her neural nets changed with each interaction.</p>
+
+<p>But no one else suspected anything. I should have been elated. My doll was passing a real-life Turing Test. But I was frightened. The algorithms made a mockery of intelligence, and no one seemed to know. No one seemed to even care.</p>
+
+<p>I finally broke the news to Brad after a week. After the initial shock he was delighted (as I knew he would be).</p>
+
+<p>“Fantastic,” he said. “We’re now no longer just a toy company. Can you imagine the things we can do with this? You’ll be famous, really famous!”</p>
+
+<p>He prattled on and on about the potential applications. Then he noticed my silence. “What’s wrong?”</p>
+
+<p>So I told him about the Chinese Room.</p>
+
+<p>The philosopher John Searle used to pose a puzzle for the AI researchers. Imagine a room, he said, a large room filled with meticulous clerks who are very good at following orders but who speak only English. Into this room are delivered a steady stream of cards with strange symbols on them. The clerks have to draw other strange symbols on blank cards in response and send the cards out of the room. In order to do this, the clerks have large books, full of rules in English like this one: “When you see a card with a single horizontal squiggle followed by a card with two vertical squiggles, draw a triangle on a blank card and hand it to the clerk to your right.” The rules contain nothing about what the symbols might mean.</p>
+
+<p>It turns out that the cards coming into the room are questions written in Chinese, and the clerks, by following the rules, are producing sensible answers in Chinese. But could anything involved in this process — the rules, the clerks, the room as a whole, the storm of activity — be said to have understood a word of Chinese? Substitute “processor” for the clerks and substitute “program” for the books of rules, then you’ll see that the Turing Test will never prove anything, and AI is an illusion.</p>
+
+<p>But you can also carry the Chinese Room Argument the other way: substitute “neurons” for the clerks and substitute the physical laws governing the cascading of activating potentials for the books of rules; then how can any of us ever be said to “understand” anything? Thought is an illusion.</p>
+
+<p>“I don’t understand,” Brad said. “What are you saying?”</p>
+
+<p>A moment later I realized that that was exactly what I’d expected him to say.</p>
+
+<p>“Brad,” I said, staring into his eyes, willing him to understand. “I’m scared. What if we are just like Tara?”</p>
+
+<p>“We? You mean people? What are you talking about?”</p>
+
+<p>“What if,” I said, struggling to find the words, “we are just following some algorithm from day to day? What if our brain cells are just looking up signals from other signals? What if we are not thinking at all? What if what I’m saying to you now is just a predetermined response, the result of mindless physics?”</p>
+
+<p>“Elena,” Brad said, “you’re letting philosophy get in the way of reality.”</p>
+
+<p>I need sleep, I thought, feeling hopeless.</p>
+
+<p>“I think you need to get some sleep,” Brad said.</p>
+
+<hr />
+
+<p>I handed the coffee-cart girl the money as she handed me the coffee. I stared at the girl. She looked so tired and bored at eight in the morning that she made me feel tired.</p>
+
+<p>I need a vacation.</p>
+
+<p>“I need a vacation,” she said, sighing exaggeratedly.</p>
+
+<p>I walked past the receptionist’s desk. Morning, Elena.</p>
+
+<p>Say something different, please. I clenched my teeth. Please.</p>
+
+<p>“Morning, Elena,” she said.</p>
+
+<p>I paused outside Ogden’s cube. He was the structural engineer. The weather, last night’s game, Brad.</p>
+
+<p>He saw me and got up. “Nice weather we’re having, eh?” He wiped the sweat from his forehead and smiled at me. He jogged to work. “Did you see the game last night? Best shot I’ve seen in ten years. Unbelievable. Hey, is Brad in yet?” His face was expectant, waiting for me to follow the script, the comforting routines of life.</p>
+
+<p>The algorithms ran their determined courses, and our thoughts followed one after another, as mechanical and as predictable as the planets in their orbits. The watchmaker was the watch.</p>
+
+<p>I ran into my office and closed the door behind me, ignoring the expression on Ogden’s face. I walked over to my computer and began to delete files.</p>
+
+<p>“Hi,” Tara said. “What are we going to do today?”</p>
+
+<p>I shut her off so quickly that I broke a nail on the hardware switch. I ripped out the power supply in her back. I went to work with my screwdriver and pliers. After a while I switched to a hammer. Was I killing?</p>
+
+<p>Brad burst in the door. “What are you doing?”</p>
+
+<p>I looked up at him, my hammer poised for another strike. I wanted to tell him about the pain, the terror that opened up an abyss around me.</p>
+
+<p>In his eyes I could not find what I wanted to see. I could not see understanding.</p>
+
+<p>I swung the hammer.</p>
+
+<hr />
+
+<p>Brad had tried to reason with me, right before he had me committed.</p>
+
+<p>“This is just an obsession,” he said. “People have always associated the mind with the technological fad of the moment. When they believed in witches and spirits, they thought there was a little man in the brain. When they had mechanical looms and player pianos, they thought the brain was an engine. When they had telegraphs and telephones, they thought the brain was a wire network. Now you think the brain is just a computer. Snap out of it. That is the illusion.”</p>
+
+<p>Trouble was, I knew he was going to say that.</p>
+
+<p>“It’s because we’ve been married for so long!” He shouted. “That’s why you think you know me so well!”</p>
+
+<p>I knew he was going to say that too.</p>
+
+<p>“You’re running around in circles,” he said, defeat in his voice. “You’re just spinning in your head.”</p>
+
+<p>Loops in my algorithm. FOR and WHILE loops.</p>
+
+<p>“Come back to me. I love you.”</p>
+
+<p>What else could he have said?</p>
+
+<hr />
+
+<p>Now finally alone in the bathroom of the inn, I look down at my hands, at the veins running under the skin. I press my hands together and feel my pulse. I kneel down. Am I praying? Flesh and bones, and good programming.</p>
+
+<p>My knees hurt against the cold tile floor.</p>
+
+<p>The pain is real, I think. There’s no algorithm for the pain. I look down at my wrists, and the scars startle me. This is all very familiar, like I’ve done this before. The horizontal scars, ugly and pink like worms, rebuke me for failure. Bugs in the algorithm.</p>
+
+<p>That night comes back to me: the blood everywhere, the alarms wailing, Dr. West and the nurses holding me down while they bandaged my wrists, and then Brad staring down at me, his face distorted with uncomprehending grief.</p>
+
+<p>I should have done better. The arteries are hidden deep, protected by the bones. The slashes have to be made vertically if you really want it. That’s the right algorithm. There’s a recipe for everything. This time I’ll get it right.</p>
+
+<p>It takes a while, but finally I feel sleepy.</p>
+
+<p>I’m happy. The pain is real.</p>
+
+<hr />
+
+<p>I open the door to my room and turn on the light.</p>
+
+<p>The light activates Laura, who is sitting on top of my dresser. This one used to be a demo model. She hasn’t been dusted in a while, and her dress looks ragged. Her head turns to follow my movement.</p>
+
+<p>I turn around. Brad’s body is still, but I can see the tears on his face. He was crying on the whole silent ride home from Salem.</p>
+
+<p>The innkeeper’s voice loops around in my head. “Oh, I could tell right away something was wrong. It’s happened here before. She didn’t seem right at breakfast, and then when you came back she looked like she was in another world. When I heard the water running in the pipes for that long I rushed upstairs right away.”</p>
+
+<p>So I was that predictable.</p>
+
+<p>I look at Brad, and I believe that he is in a lot of pain. I believe it with all my heart. But I still don’t feel anything. There’s a gulf between us, a gulf so wide that I can’t feel his pain. Nor he mine.</p>
+
+<p>But my algorithms are still running. I scan for the right thing to say.</p>
+
+<p>“I love you.”</p>
+
+<p>He doesn’t say anything. His shoulders heave, once.</p>
+
+<p>I turn around. My voice echoes through the empty house, bouncing off walls. Laura’s sound receptors, old as they are, pick it up. The signals run through the cascading IF statements. The DO loops twirl and dance while she does a database lookup. The motors whirr. The synthesizer kicks in.</p>
+
+<p>“I love you too,” Laura says.</p>
+
+<hr />
+
+<p>Author's Note: The story’s basic premise, a talking doll that inspires fear and awe, is drawn from Rebecca Raney’s article in the New York Times about Manley Toy Quest’s talking doll, Cindy Smart. The ending of my story is meant to echo the ending of her article. One of the characters in the story, the reporter, is thus named Cindy in acknowledgment of her inspiration. As well, the tone and central conflict of the story evoke Ted Chiang's excellent "Division by Zero." Chiang's work has had a huge influence on me, and as a gesture of respect, note that my protagonist's words to her husband right before the conception of their child echo the words spoken in similar circumstances by Chiang's protagonist in "The Story of Your Life."</p>
+
+<p>Copyright © Ken Liu 2004, All Rights Reserved Unless Explicitly Granted</p>
+          </div>
+          <footer class="post-footer">
+            <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="post-author">
+                <a href="http://sorpaas.com" class="post-author-avatar">
+                  <img itemprop="image" src="//www.gravatar.com/avatar/0767b87f9fd3a8dca04caf8f06c0f795?d=404&amp;s=250" alt="sorpa&#x27;as plat">
+                </a>
+              <div class="post-author-info">
+                <h4 class="post-footer-heading">Written By</h4>
+                <a href="http://sorpaas.com" itemprop="url" class="post-author-name">
+                  <span itemprop="name">sorpa&#x27;as plat</span>
+                </a>
+                <p itemprop="description" class="post-author-bio"></p>
+                  <p class="post-author-website">
+                    <a href="http://sorpaas.com" rel="nofollow">http://sorpaas.com</a>
+                  </p>
+                <p class="post-info">
+                  <b class="post-info-title">Published on</b>
+                  <time class="post-date">January 18, 2014</time>
+                </p>
+              </div>
+            </div>
+            <div class="post-social">
+              <h4 class="post-footer-heading">Spread the word</h4>
+              <a href="#" data-action="share-twitter"><i class="fa fa-fw fa-lg fa-twitter"></i></a>
+              <a href="#" data-action="share-facebook"><i class="fa fa-fw fa-lg fa-facebook"></i></a>
+              <a href="#" data-action="share-gplus"><i class="fa fa-fw fa-lg fa-google-plus"></i></a>
+            </div>
+          </footer>
+        </section>
+      <section itemprop="comment" class="post-comments">
+        <div id="disqus_thread"></div>
+      </section>
+    </article>
+
+    <footer role="contentinfo" class="footer">
+      <p><small>© 2015. All Rights Reserved.</small></p>
+      <p><small><a href="http://ghostium.oswaldoacauan.com/" target="_blank">Ghostium Theme</a> by <a href="http://twitter.com/oswaldoacauan" target="_blank">@oswaldoacauan</a></small></p>
+      <p><small>Proudly published with <a href="http://ghost.org" target="_blank">Ghost</a></small></p>
+    </footer>
+  </div>
+</section>
+
+<script type="text/javascript">
+  if(GHOSTIUM.haveDisqus) {
+    var disqus_identifier = '3';
+
+    if(typeof DISQUS !== 'object') {
+      (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    }
+  } else {
+    document.querySelector('.post-comments').remove();
+  }
+</script>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/public/jquery.min.js?v=0befb16148"></script>
+
+    <script src="/assets/js/foot-scripts.min.js?v=0befb16148"></script>
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//piwik.ns.mg/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', 2]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//piwik.ns.mg/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+    <!-- End Piwik Code -->
+    <script type="text/javascript">
+
+      if(GHOSTIUM.haveGA) {
+        (function(g,h,o,s,t,z){g.GoogleAnalyticsObject=s;g[s]||(g[s]=
+        function(){(g[s].q=g[s].q||[]).push(arguments)});g[s].s=+new Date;
+        t=h.createElement(o);z=h.getElementsByTagName(o)[0];
+        t.src='//www.google-analytics.com/analytics.js';
+        z.parentNode.insertBefore(t,z)}(window,document,'script','ga'));
+        ga('create',ga_ua);ga('send','pageview');
+      }
+
+      if(GHOSTIUM.haveDisqus) {
+        (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+      }
+    </script>
+  </body>
+</html>

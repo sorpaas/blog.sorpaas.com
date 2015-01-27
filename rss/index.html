@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[sorpa'as]]></title><description><![CDATA[Thoughts, stories and ideas.]]></description><link>https://blog.sorpaas.com/</link><generator>Ghost 0.5</generator><lastBuildDate>Tue, 27 Jan 2015 12:16:48 GMT</lastBuildDate><atom:link href="https://blog.sorpaas.com/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[My Internet-free Days]]></title><description><![CDATA[<p>During the new year, I had nearly one week without Internet in <a href="https://en.wikipedia.org/wiki/Dali_City">Dali City</a>. I found it really helpful to have those days when feeling stressful or lack of ideas. Here I would like to record something I learned from it.</p>
+
+<h3 id="theessenceofeverything">The Essence of Everything</h3>
+
+<p>I felt fine for the first day. The weather was good, and life was good. However, I started to feel a little anxious in the second day here, because as everything settled down, you started to care about yourself, and there I found myself living all my life with computers, and did not even have many friends. So I called my old friends dating back to high school. It worked well, and it always reminds me the importance of stopping and digging out the essence.</p>
+
+<h3 id="ideas">Ideas</h3>
+
+<p>One of the thing I found when being without Internet is the huge amount of ideas you could have. I realized because I was not exposed to huge amount of information any more, I can think deeper, and there was once a project called "5 days 5 topics" at that time. It turned out really well, and I learned a lot from it.</p>
+
+<hr>
+
+<p>Have some Internet-free days if you could!</p>]]></description><link>https://blog.sorpaas.com/my-internet-free-days/</link><guid isPermaLink="false">319d708c-c3ff-41f4-b8e2-6eb84ebf3d9d</guid><category><![CDATA[english]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Wed, 21 Jan 2015 14:21:26 GMT</pubDate></item><item><title><![CDATA[lenu gunka lo gungunma]]></title><description><![CDATA[<p>ni'o mi nelci lo ka gunka lo gungunma .i ti mulnogau mi .i so'i le mi <br>
+lifri ku me lenu mi gunka lo gungunma .i mi cuxna ti noi lifri .i <br>
+ni'igi mi mulno leka gunka lo gungunma ge lo prenu ku cu jinvi leka mi <br>
+snada .i ni'igi mi na go'i ge mi gleki</p>]]></description><link>https://blog.sorpaas.com/lenu-gunka-lo-gungunma/</link><guid isPermaLink="false">c1f016fb-ac70-43a7-9cd2-74ef3f70776e</guid><category><![CDATA[lojban]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Wed, 21 Jan 2015 08:42:51 GMT</pubDate></item><item><title><![CDATA[The Universe is Lazy: Thoughts on a 2D Universe Simulation]]></title><description><![CDATA[<p>In this winter I created a <a href="http://universe.ns.mg/particles">2D universe simulation</a> using WebGL. You can find some technical details of this project in a <a href="http://sorpaas.com/slides/webgl-2d-universe-simulation">presentation</a> done in <a href="http://cuhkoil.org/">Open Innovation Lab</a>. Here I would like to share lessons learned from making the project.</p>
+
+<h3 id="webglandgpgpuisfast">WebGL and GPGPU is Fast</h3>
+
+<p>It's really fast, and it's also better at math. In the simulation, there are <code>32678 (1024 * 32)</code> particles in total, but it still runs fairly well in a normal computer. So if you have ever come to any performance problem for your web application, give WebGL a try.</p>
+
+<h3 id="structuredataasitshouldbe">Structure Data As It Should Be</h3>
+
+<p>One thing I needed to deal with in this simulation is to calculate gravities. In the beginning I tried to use some javascript arrays to accomplish them. However, it seemed a little bit complex and slow. In the end, I finally found the right approach, as each position on the screen has a property of gravity, simply <strong>draw gravities onto the screen</strong>. You can use a seperated frame buffer for this purpose, and attach this frame buffer to a texture for later access.</p>
+
+<h3 id="theuniverseislazy">The Universe is Lazy</h3>
+
+<p>I was once very confused that why, in order to describe our universe, we have things as complex as general relativity and quamtun theory. However, by applying a modified version of those theories into the simulation, I find that it's really good in terms of scaling and performance.</p>
+
+<p>For example, by treating gravities as waves in a big universe, we don't need to update all values of gravities in all positions simultaneously. Instead, we just need to update values near the existing points, and it will <strong>spread</strong> to other positions.</p>]]></description><link>https://blog.sorpaas.com/the-universe-is-lazy/</link><guid isPermaLink="false">70709b80-3cbc-45e9-98f4-50bddcc191e0</guid><category><![CDATA[english]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Sat, 17 Jan 2015 04:56:05 GMT</pubDate></item><item><title><![CDATA[Munje: A Proposal]]></title><description><![CDATA[<p>This is a proposal for the Munje project. For more information of Munje, please go to <a href="https://ns.mg/Munje">https://ns.mg/Munje</a>.</p>
+
+<h3 id="terminology">Terminology</h3>
+
+<p>Below I'll try to use a terminology similar to logic programming language.</p>
+
+<p>Those two terms come from the book by <a href="http://dl.acm.org/citation.cfm?id=128869" title="Manna, Zohar, and Amir Pnueli. The temporal logic of reactive and concurrent systems: specifications. Vol. 1. springer, 1992.">Zohar Manna</a>:</p>
+
+<ul>
+<li>Transformational program: a program that focus on produce a final
+result given arguments as inputs.  </li>
+<li>Reactive program: a program that maintain some ongoing interaction
+with the environment.</li>
+</ul>
+
+<p>Also, I will use those two terms to distingish two different kinds of <br>
+variables:</p>
+
+<ul>
+<li>Determined variable: A variable whose value can be determined during
+compile time or passed before the initialization of the program.  </li>
+<li>Undetermined variable: In a reactive program, a variable whose value,
+at some time, needs to rely on interactions with the environment, and <br>
+therefore cannot be determined during compile time, for example, user input.</li>
+</ul>
+
+<h3 id="assumptions">Assumptions</h3>
+
+<p>The following assumptions will be made (proof needed):</p>
+
+<ul>
+<li>A description of temporal logic, if contains only determined variable,
+can be translated easily into logic without the temporal part. That is, <br>
+the temporal part can be easily reduced.  </li>
+<li>If a description of temporal logic contains undetermined variable, its
+translation into logic without the temporal part will cause appearence <br>
+of "side-effects" and is not complete (in terms of logic).</li>
+</ul>
+
+<h3 id="expressivenessofmunjecomparedwithprologio">Expressiveness of Munje compared with Prolog I/O</h3>
+
+<p>Consider the following specification of a program:</p>
+
+<p>A reactive program, which reads user input of 9 numbers of 0 and 1. <br>
+Those numbers are splited by "|", and a new line should be created after <br>
+3 numbers are inputed. For example, the user may give the following input:</p>
+
+<pre><code>1 | 1 | 0
+0 | 1 | 1
+0 | 0 | 0
+</code></pre>
+
+<p>This is useful for giving initial condition of programs such as Game of <br>
+Life <a href="http://www.ibiblio.org/lifepatterns/october1970.html" title="Conway, John. &quot;The game of life.&quot; Scientific American 223.4 (1970): 4.">2</a>.</p>
+
+<h4 id="inprolog">In Prolog</h4>
+
+<p>Prolog's I/O system is similar to that in a imperative language, you <br>
+need to use the <code>read_string</code> relation:</p>
+
+<pre><code>read_string(X)
+</code></pre>
+
+<p>After the <code>get_input</code> relation gets backtraced and a newline is <br>
+enterred, the <code>X</code> variable will contain the result of user input. <br>
+Therefore, you would need to call <code>read_string(X)</code> three times, and <br>
+split the resulting variables to get the final user input.</p>
+
+<h4 id="inmunje">In Munje</h4>
+
+<pre><code>list xs '([repeat 9 (read @ (or (eq @ "|") (eq @ "\n")) @]) ;result
+holds xs ps ;mapping the list and get corresponding time points
+sequence ps ;claim that the time points are in a sequence
+</code></pre>
+
+<p>Where read is defined as:</p>
+
+<pre><code>read x term ;read user input as `x` before `term` appears
+</code></pre>
+
+<p>In Munje, using temporal logic, we can directly insert the user input <br>
+logic as a relation to the result list. "@“ means replace the value here <br>
+is a direct replacement of the relation.</p>
+
+<h3 id="dependencymethods">Dependency methods</h3>
+
+<p>Using temporal logic, dependency methods can be easily claimed. This is <br>
+extremely useful when do initialization of a program.</p>
+
+<h3 id="reactiveprogram">Reactive program</h3>
+
+<p>Thanks to temporal logic, for reactive programs that requires continuous <br>
+data change, for example, <a href="http://pmav.eu/stuff/javascript-game-of-life-v3.1.1/">the Game of Life implementation</a>, temporal <br>
+logic is really expressive.</p>
+
+<h3 id="existingessaysandimplementations">Existing Essays and Implementations</h3>
+
+<p>There are many existing essays talking about temporal logic in logic <br>
+programming languages, including:</p>
+
+<ul>
+<li>Hrycej, Tomas. "A temporal extension of Prolog." The Journal of Logic
+Programming 15.1 (1993): 113-145.  </li>
+<li>Baudinet, Marianne. "Temporal logic programming is complete and
+expressive." Proceedings of the 16th ACM SIGPLAN-SIGACT symposium on <br>
+Principles of programming languages. ACM, 1989.  </li>
+<li>Abadi, Martin, and Zohar Manna. "Temporal logic programming." Journal
+of Symbolic Computation 8.3 (1989): 277-295.</li>
+</ul>
+
+<p>Also, a project called TRIO is focusing on analysis using temporal <br>
+logic, which is also highly related. <a href="http://dl.acm.org/citation.cfm?id=128869" title="Manna, Zohar, and Amir Pnueli. The temporal logic of reactive and concurrent systems: specifications. Vol. 1. springer, 1992.">Zohar Manna</a> also has a book <br>
+talking about temporal programming.</p>]]></description><link>https://blog.sorpaas.com/munje-a-proposal/</link><guid isPermaLink="false">3457e0e5-a8e4-4ddc-9b8a-344866335af5</guid><category><![CDATA[english]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Mon, 12 Jan 2015 13:20:06 GMT</pubDate></item><item><title><![CDATA[2014: Year In Review]]></title><description><![CDATA[<p>From last year, I started to write a Year In Review post at the end of each year to record some thoughts I have about the world. As it has been the end of 2014, I decided to write another one.</p>
+
+<h3 id="projectnsmg">Project Nsmg</h3>
+
+<p>This year, I started <a href="http://ns.mg/">Project Nsmg</a>. The progress is a bit slow because I can only work part time. The <a href="https://ns.mg/Speech_Recognition_for_Lojban">Speech Recognition for Lojban</a> has gained a little attention in Lojban community and the <a href="http://github.com/sorpaas/reread">Reread</a> news reader has gained 100+ stars at Github. Thanks everyone who has paied attention or contributed to those projects!</p>
+
+<h3 id="snapvivaandappworks">SnapViva and AppWorks</h3>
+
+<p>Joining <a href="http://snapviva.com/">SnapViva</a> is really a fascinating experience. I am really glad to get the opportunity to go to <a href="http://appworks.tw/">AppWorks</a> this fall. Stay tuned and we will launch at <a href="http://www.labmade.com.hk/">Lab Made</a> on Christmas.</p>
+
+<h3 id="booksmusicandmovies">Books, Music and Movies</h3>
+
+<p>Those are books, music and movies that has influenced me a lot this year:</p>
+
+<ul>
+<li><a href="https://www.goodreads.com/series/137744-three-body">Three Body Trilogy</a> (三體) by Liu Cixin</li>
+<li><a href="http://www.imdb.com/title/tt1436562/">Rio (2011)</a> and <a href="http://www.imdb.com/title/tt2294629/">Frozen (2013)</a></li>
+<li><a href="http://www.imdb.com/title/tt0816692/">Interstellar (2014)</a></li>
+<li><a href="http://en.wikipedia.org/wiki/The_Tale_of_the_Princess_Kaguya">The Tale of the Princess Kaguya (2013)</a></li>
+<li><a href="https://www.goodreads.com/book/show/548914.The_Little_Schemer">The Little Schemer</a> by Daniel P. Friedman</li>
+<li><a href="http://book.douban.com/subject/1057244/">邊城</a> by 沈從文</li>
+<li><a href="https://www.goodreads.com/book/show/18176747-the-hard-thing-about-hard-things">The Hard Thing About Hard Things</a> by Ben Horowitz</li>
+<li><a href="http://book.douban.com/subject/6781808/">To Kill a Mocking Bird</a> by Harper Lee</li>
+<li><a href="http://en.wikipedia.org/wiki/Byakuyako">Byakuyako</a> by Keigo Higashino</li>
+<li><a href="http://book.douban.com/subject/1858513/">The Moon and Sixpence</a> by W Somerset Maugham</li>
+<li><a href="http://book.douban.com/subject/2035171/">Of Human Bondage</a> by W Somerset Maugham</li>
+<li><a href="http://book.douban.com/subject/1060068/">The Stories of the Sahara (撒哈拉的故事)</a> by Sanmao</li>
+<li><a href="http://en.wikipedia.org/wiki/Pride_and_Prejudice">Pride and Prejudice</a> by Jane Austen</li>
+<li><a href="http://en.wikipedia.org/wiki/The_Wind_Rises">The Wind Rises (2013)</a></li>
+<li>Mozart and Beethoven</li>
+</ul>
+
+<h3 id="allihaveforgotten">All I Have Forgotten</h3>
+
+<p>There might be many things that I have forgotten. Here's a place holder.</p>
+
+<hr>
+
+<p>More to come in the new year. Stay tuned!</p>]]></description><link>https://blog.sorpaas.com/2014-year-in-review/</link><guid isPermaLink="false">70c5b740-9422-44e3-a280-f1c1b51ad5ee</guid><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Tue, 23 Dec 2014 12:40:14 GMT</pubDate></item><item><title><![CDATA[Build Tools for Humans, not Machines]]></title><description><![CDATA[<blockquote>
+  <p>The real question is not whether machines think but whether men do. (<em>B. F. Skinner</em>)</p>
+</blockquote>
+
+<p>Stephen Hawking recently <a href="http://www.telegraph.co.uk/technology/news/11268738/Artificial-intelligence-could-mean-end-of-human-race-says-Stephen-Hawking.html">expressed his fear</a> that the development of AI could spell the end of human race. It might be real. It might be real, as Howking described, in the way that machines "become self-aware and 'supersede' humanity". However, It might also be real in the way that humans think and use tools more and more like machines, and finally we cannot differenciate us and them.</p>
+
+<p>I hope I'm just saying a funny joke here, but the trend of the former is really obvious. Take what I'm working on, <a href="http://reread.io/">a news reader</a>, as an example. There are <a href="http://en.wikipedia.org/wiki/Prismatic_%28app%29">many</a> <a href="http://link.springer.com/chapter/10.1007%2F11914853_62#page-1">news</a> <a href="http://blog.algorithmia.com/post/93293999119/create-your-own-machine-learning-powered-rss">readers</a> out there on the Internet that take advantages of Machine Learning, a branch of AI. They have done great jobs in predicting what you might like best for the next article. As it has been said, reading things based on what one likes "makes people feel much better of the world".</p>
+
+<p>However, together with the convenience, as they only provide the ability for you to choose categories or news sources, </p>
+
+<p>For websites and applications on the Internet, the case is always that all invoving parts do things what they are good at and what they should do. When we add AI to our awesome tools, we may really need to ask ourselves. What are we really trying to predict here? Do we need to get the users to make decisions first?, or <strong>are we treating our users as humans?</strong></p>]]></description><link>https://blog.sorpaas.com/build-tools-for-humans-not-machines/</link><guid isPermaLink="false">766ccc87-646d-487d-a17c-de4240438f09</guid><category><![CDATA[english]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Sun, 07 Dec 2014 07:35:04 GMT</pubDate></item><item><title><![CDATA[Memory Efficiency of Lojban tanru Left Grouping]]></title><description><![CDATA[<p>It turned out that memory efficiency is not only a problem for computer, but also a problem for human.</p>
+
+<p>In English, "little girl school" has ambiguous meaning. Without further information, one cannot know whether its exact meaning is "school for little girls" or "little school for girls". Lojban solved the problem by defining tanru like this as left grouping. Therefore, "cmalu nixli ckule" will always mean "school for little girls" but not other way around. In Lojban, it is always "left grouping" for logical predicates to combine together.</p>
+
+<p>So why left grouping but not right grouping?</p>
+
+<p>I don't know whether LLG considered it when they made the grammer in 1990s, but left grouping truly has some advantages over right grouping. One of it is <strong>memory efficiency</strong>.</p>
+
+<p>To illustrate it, let's consider a mathematical concept <strong>recursion</strong>. For example, to write a factorial function, one can simply make it like this in OCaml:  </p>
+
+<pre><code class="ocaml">let rec factorial = function  
+  | 0 -&gt; 1
+  | n -&gt; n * (factorial (n - 1));;
+</code></pre>
+
+<p>However, this version is not memory efficiency. If <code>n</code> is big, it will take a lot of memory since it needs to expand the list before doing any calculation. It is right grouping.</p>
+
+<p>There's a techniques called <strong>tail recursion</strong> to solve the problem. For the above example, we can change it to left grouping to make it calculate while expanding the list:  </p>
+
+<pre><code class="ocaml">let factorial n =  
+  let rec aux acc = function
+    | 0 -&gt; acc
+    | n -&gt; aux (acc * n) (n - 1)
+  aux 1 n;;
+</code></pre>
+
+<p>In Lojban, using left grouping for "cmalu nixli ckule", we need to remember less things in order to understand the text. When hearing or reading the first two words "cmalu nixli", we can already understand it's about "little girl", and then after hearing or reading the third word "ckule", we can directly combine "little girl" with school without the need to remember 3 words together to understand the idea.</p>
+
+<p>Lojban is an artificial language designed for human to human communication and intend to suit our future need of communication with computers and artificial agents. For more information of Lojban, you can go to <a href="https://blog.sorpaas.com/lojban.org">lojban.org</a>.</p>]]></description><link>https://blog.sorpaas.com/memory-efficiency-of-lojban-tanru-left-grouping/</link><guid isPermaLink="false">ab63dd5f-6635-46cc-acbd-a882c57cfe8b</guid><category><![CDATA[english]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Thu, 30 Oct 2014 13:35:19 GMT</pubDate></item><item><title><![CDATA[良質、如是性原理和多樣性原理]]></title><description><![CDATA[<p>幾年前的一段時間，我曾經癡迷上了禪宗。禪宗的根基，在於超越理性和思想，認爲生活的真理不是言語所能觸及的，而這也正式頓悟的來源。但如果反其道而行，用理性和思想來解釋禪宗，也就是知其不可而爲之，也另有一番趣味。當時這些理論的靈感來自於<a href="http://zh.wikipedia.org/zh-tw/%E7%BD%97%E4%BC%AF%E7%89%B9%C2%B7%E6%A2%85%E7%BA%B3%E5%BE%B7%C2%B7%E6%B3%A2%E8%A5%BF%E6%A0%BC">羅伯特·梅納德·波西格</a>所著《萬里任禪遊》和杨煦生所著《逃向世界》，其中還可以看到喬布斯（Steve Jobs）演講的一些引用。如果某一天我終於理解了以前我在此所說的話，我會嘗試寫下更多解釋的。</p>
+
+<p><strong>禪宗的如是性原理</strong>其一：</p>
+
+<blockquote>
+  <ul>
+  <li><strong>原理</strong>：你所感知到的現象都是你所感知到的現象，都是其應是的樣子。世界如其所是，而你在世界中，無處可逃，唯有逃向世界。</li>
+  <li><strong>作用</strong>：讓一切是其所是。</li>
+  <li><strong>方法論——思想與情緒</strong>：思想通過其特定的方式製造情緒，影響人們的行爲。情緒的產生不易被阻止，但當壞的情緒產生時，我們的內心深處可以意識到它是壞的，進而採用趨利避害的方式迴避它。其次，如果我們意識到世界的如是性，那麼理性也就不會產生更多壞的情緒。</li>
+  <li><strong>解釋——高尚</strong>：如是性本身並不能產生高尚，高尚來自於心靈深處，依靠良質的趨利避害原理，我們可以更容易地找到高尚。如是性也是高尚的一部分。</li>
+  <li><strong>解釋——完整性</strong>：如是性構成了一個基於現象一元論的世界觀。既然一切如其所是，則你也是你所是，則你這個個體是完整的。你既是你所是，沒有理由不追隨自己的內心。</li>
+  </ul>
+</blockquote>
+
+<p><strong>禪宗的如是性原理</strong>其二：</p>
+
+<blockquote>
+  <ul>
+  <li><strong>內容</strong>：一切是其所是。我們所感知到的現象即是我們所感知到的現象，我們所見之世界即是我們所見之世界。</li>
+  <li><strong>方法論——禪宗之活在當下</strong>：我們（作爲）存在於是其所是的世界（的人），唯有承認並接受此世界之存在。在世界中之人，無處可逃，唯有逃向世界。</li>
+  <li><strong>方法論——思想與情緒</strong>：情緒由思想產生。當壞的情緒產生時，我們可以意識到它是壞的，並採用趨利避害的方式迴避它。其次，如果我們意識到世界的如是性原理，壞的情感便不會遞歸式的產生。</li>
+  <li><strong>價值觀以及完整性的追尋——追隨內心</strong>：每個人都是其所是，依此來看，無論貧窮、富有、高尚、卑賤、健康、疾病，每個人都是平等的。在這個層次上，世界不存在高低貴賤之分，則每一個個體無論何時何地處於何種狀態，其都是完整的。每個人都是其所是，沒理由不追隨內心。</li>
+  <li><strong>方法論——追求美好的事物</strong>：由原理和方法論，人們應當追求美好的事物，追求光明和高尚，不論使用什麼方法，不論追求的是否是真正的光明和高尚。良質只能告訴人們哪裏可能有光，並不能告訴人們究竟應朝何方前進。</li>
+  <li><strong>良質的欲求假設</strong>：我們無法獲得良質乃是因爲我們沒有足夠想要它。如果你真正想要良質，那麼你就能得到它。</li>
+  </ul>
+</blockquote>
+
+<p><strong>思考的體制化</strong>：</p>
+
+<blockquote>
+  <ul>
+  <li><strong>緣起</strong>：理性的思考無法給人以明晰的答案，反而製造了無數的混亂。我們可以在思考中找到<strong>贊成與反對</strong>做這件事的理由，但卻無法找到<strong>去</strong>做這件事的理由。許多理性思考也會造成許多情緒化的反應，他們是有害的。</li>
+  <li><strong>原理</strong>：引入「趨利避害」的良質。良質無形無狀，在理性中無法界定它所處的位置，但它提供給人明晰的指引，爲人們做事提供方向。良質對「外界」的刺激作出反應，同時也控制它們。／對事物的控制將其引向「趨利避害」的方向，並不會影響它的本質含義。相反，良質遵循事物的本質含義。</li>
+  <li><strong>方法論——停止法</strong>：若不符合良質的事物產生，試圖將其停止。</li>
+  </ul>
+</blockquote>
+
+<p><strong>多樣性原理</strong>：</p>
+
+<blockquote>
+  <ul>
+  <li><strong>內容</strong>：存在許多不同的解釋世界的方法，這些方法可能存在於不同的層次，依賴於不同的思維方式。由於難以使自己相信其中某一個是正確的，並且解釋世界的過程實在人的大腦內完成的，所以這些方法不分對錯，也不分好壞。</li>
+  <li><strong>渺小原理</strong>：由多樣性原理，每個人在特定狀態所產生的特定看待問題的方式不過是大千世界衆多奇妙方式之一，對自己尤其如此。我們應承認這些看待問題的方式的合理性並爲其尋找產生緣由。</li>
+  <li><strong>方法論——魯迅的路</strong>：無法確定所做的選擇是好是壞，但仍然應當認真對待選擇。「走自己的路，讓別人說去罷」。</li>
+  <li><strong>內心的平靜</strong>：專注於當前所做之事，全觀地看待事物。不受情緒和慾望的左右，冷靜地追尋內心。</li>
+  <li><strong>熱愛生命及其推論</strong>：熱愛之意即讓其是其所是，並讓其變得更好。那麼，熱愛生命、熱愛世界、熱愛自己的友鄰、熱愛身邊之物。熱愛自己的情感，無論愛情、友情、親情。</li>
+  <li><strong>價值觀不完全原理</strong>：價值觀，對於已知的來說，是不完全的。總會有美好之物位於已知價值觀之外。</li>
+  <li><strong>聆聽者</strong>：應盡己所能理解這個世界，以及在這個世界之中發生的所有事情。永遠不能孤傲地排斥這個世界，拒斥他們的觀點。畢竟，「存在即合理」。</li>
+  <li><strong>好奇心</strong>：對一切事物充滿好奇心。在博大的世界中總有你所不瞭解的事物。</li>
+  <li><strong>自由</strong>：指代思想、言論和身體上的相對自由。在公共場合的言論自由，自由地完成正義之事的自由，信息的自由獲取，政治自由，行動與選擇的自由。如果自由之權利無法獲得，要盡力爭取。自由是一種信仰。</li>
+  <li><strong>知識與思想</strong>：知識與思想無論對錯，對人類社會和身處其中的每一個個體都具有進步意義。思想造就人的偉大。純粹的知識和思想是一種信仰。</li>
+  <li><strong>開源社區</strong>：將世界上最好的軟件開放地奉獻給人類是一種信仰。</li>
+  <li><strong>瘋子</strong>：同充滿熱情地做自己熱愛之事的瘋子們待在一起並成爲朋友是一件美好的事情。</li>
+  <li><strong>民主、和平與開放</strong>：一個良好的政府應當遵循之原則。</li>
+  <li><strong>創新與異端</strong>：本質上，創新與異端是同一回事。創造是一種信仰。</li>
+  <li><strong>環境友好的專注</strong>：如果一件事不好，但是不值得去爭論，那就不要爭論。「守口如瓶，笑臉相迎」，只打值得打的仗。</li>
+  <li><strong>旅行</strong>：作爲一種瞭解世界的方式，旅行不失爲一種信仰。</li>
+  <li><strong>反淺薄的功利主義和實用主義</strong>：世界不只有利益，將世界功利化是反良質的。</li>
+  <li><strong>獨立性</strong>：每個人都是一個獨立的個體。</li>
+  <li><strong>簡單</strong>：複雜的事物沒有簡單的事物具有美感。</li>
+  <li><strong>懶惰</strong>：避免重複，用最少的消耗完成最多的事情。</li>
+  </ul>
+</blockquote>]]></description><link>https://blog.sorpaas.com/liang-zhi-ru-shi-xing-yuan-li-he-duo-yang-xing-yuan-li/</link><guid isPermaLink="false">33f3ade1-a514-4898-8a62-5de4bb400c65</guid><category><![CDATA[chinese]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Fri, 24 Oct 2014 05:21:24 GMT</pubDate></item><item><title><![CDATA[舊聞]]></title><description><![CDATA[<p>最近翻到了幾年前留下來的幾本筆記，隔了這麼長時間，回看起來，甚是有趣。感覺上，當時的我真是某種程度上的天才——可以完成整頁整頁的任務計劃，研究程序語言的設計，讀過的書簡直數不勝數。乍一想來，如果當時就意識到自己的這種才能，早就變成百萬富翁了。</p>
+
+<p>既然如此，那麼就要把這些東西依次整理下來，不要再被塵埃無情的沖走了。</p>]]></description><link>https://blog.sorpaas.com/jiu-wen/</link><guid isPermaLink="false">09e8d4d8-1e94-4488-84f1-2105c1871977</guid><category><![CDATA[chinese]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Fri, 24 Oct 2014 03:16:04 GMT</pubDate></item><item><title><![CDATA[SnapViva: Make Ads Work]]></title><description><![CDATA[<p><strong>SnapViva is a tool that generate advertisements.</strong> Yes, you heard it correct. SnapViva is another tool that creates ads. To fit us in the tech categories, we are an advertisement startup, which means our potential competitors are Facebook and Google, whose employees are trying hard to get users to click on their ads. We have been working on it for over a year. So you may ask, are you guys helping the world by creating the hating ads that users and readers want to get over for decades?</p>
+
+<hr>
+
+<p>That's true, but unlike others, we also want to get over ads. I still remember Jeff Hammerbacher complain about ads in the Internet years:</p>
+
+<blockquote>
+  <p>The best minds of my generation are thinking about how to make people click ads, that sucks.</p>
+</blockquote>
+
+<p>People spent enormous amount of time working on ads, but they are still not efficient enough. We want to help them by making ads work so that those best minds can build more important things. We hate ads as they currently are as you do. However, instead of trying to block it, we treat it as a problem that has to be solved. </p>
+
+<p>Companies like Google and Facebook has done great jobs on displaying ads, but they failed at the essense. <strong>Ads are not about ads, but about delivering right information to the right user in the right way.</strong> Ads shouldn't exist in the first place, and what we are trying to do is to put them back to the right place. <strong>We are trying to make ads disappear by putting them back to nature.</strong></p>
+
+<p>We started doing it by photos, and we are still building <a href="http://www.snapviva.com/">SnapViva</a>.</p>]]></description><link>https://blog.sorpaas.com/snapviva-make-ads-work/</link><guid isPermaLink="false">02171b4c-9560-4b94-8b06-536f02f4554b</guid><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Thu, 16 Oct 2014 11:56:11 GMT</pubDate></item><item><title><![CDATA[la .acidaka .e la .san.]]></title><description><![CDATA[<p>ni'o finti fa la'o py. ma,i py. <br>
+.i fanva fa la sorpa'as</p>
+
+<blockquote>
+  <p>doi ro lo sipna prenu vu le tumla<br>
+  .i ri'a lo ka ganlo lo do kanla ku<br>
+  do tirna le se cusku lo smaji<br>
+  .i co'u le nu ka'e xruti le mamta zalvi<br>
+  no'u le nu le cimnytei gusni klama le mamta zdani<br>
+  cu so'i krici le nu mi'o jmive<br>
+  .i le pacna be le ka jmive cu se lebna<br>
+  .i viska le tsani<br>
+  .i le prami te jorne do .e mi<br>
+  giju mi do sepli<br>
+  ni'a le pacna tsani</p>
+</blockquote>]]></description><link>https://blog.sorpaas.com/la-acidaka-e-la-san/</link><guid isPermaLink="false">4c4d1415-3f4d-4ab0-9c04-0cbd03134dad</guid><category><![CDATA[lojban]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Tue, 30 Sep 2014 08:08:35 GMT</pubDate></item><item><title><![CDATA[Spliting Apps]]></title><description><![CDATA[<p>Splitting things apart needs courage, but it's necessary when things <br>
+go wrong.</p>
+
+<p>A big app often contains unnecessary part that stick different <br>
+functions together, but all those things may have already implemented <br>
+well in other apps, and they are nothing related to your core <br>
+business. For example, if you are doing an app that can search <br>
+different social networks, then you just need search. You don't need <br>
+anything else such as friends system, posting system, group system and <br>
+etc. If you are doing an app about coupons, then you don't need feed <br>
+system, camera system and etc. Well, and in the same condition, if you <br>
+are doing an app about something, then make it all about that thing.</p>
+
+<p>And if you find something in your app that cannot be removed but <br>
+unnecessary, consider splitting your apps up. An app about taking <br>
+photos and receiving coupons, may be splitted into an app about taking <br>
+photos, and another about receiving coupons. At that time, you will <br>
+find that you can release the burden of the feed system, and the <br>
+friend system, which has already implemented well in other social <br>
+network apps. In addition, you will attract users who just want taking <br>
+photos, and users who have already taken photos in other places, but <br>
+just want their coupons.</p>
+
+<p>A big app may be confusing for users. Even a user installed it, she <br>
+will not use it that often, because it has many similar parts to other <br>
+big apps, which they are familiar. Big apps often involves lots of <br>
+context, and requires users to remember many things. However, <br>
+splitting a big app makes things precise and easy to understand. A <br>
+user will easily understand that under which situation will this app <br>
+be useful, and when that situation happens, she will think of this app <br>
+immediately.</p>
+
+<p>Many apps have fancy UIs and fancy functions, but users just want to <br>
+use it to get their stuff done, and you just want to use it to get <br>
+your business done. Apps are tools for business needs.</p>]]></description><link>https://blog.sorpaas.com/spliting-apps/</link><guid isPermaLink="false">6d68ec19-4602-47e7-ac64-c76b0b829ee8</guid><category><![CDATA[english]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Sun, 28 Sep 2014 07:16:30 GMT</pubDate></item><item><title><![CDATA[You Don't Really Need to Build an App]]></title><description><![CDATA[<p>Nearly everyone has their own phones, and valuable users install apps selectively. Few people install more than a hundred apps in their phone, compared with more than millions of apps in the store.</p>
+
+<p>Startups make apps, and they start to make so many of them that most of them are unnecessary. Startups should be building great business and great products, but not great apps.</p>
+
+<p>Many startups have the false assumption that they need to build an app in order to <em>hold</em> users. But apps can be easily uninstalled, and it is the users that are using the app, but not that have installed the app, that create values.</p>
+
+<p>Apps are expensive for users. They need to spend time installing it. Apps also take up space, and users take risks of their privacy and security.</p>
+
+<p>Apps are entrance for users. They browse the Internet using apps, find their friends using apps, and text messages using apps. But if your business is not about entrance, there must be some better approaches to do it.</p>
+
+<p>Apps are products. If your business only changes one part of how people do things, but you create an app together with other parts same as them in other apps, then you will spend a large amount of unnecessary time making sure those parts are just as good as other apps.</p>
+
+<p>Apps has functions. They are created because they need to use cameras or other sensors on the phone. If most parts of the functions can be implemented using some hybrid things, then an app may be unnecessary.</p>
+
+<p>You don't really need to build an app. For example, if you are building something that allows user to get coupons by sharing photos, you probably don't need to implement all the functions by yourself. You can watch the feed on Facebook and Twitter, and just use the API to send them the coupon they need.</p>
+
+<p>If an app is not necessary, then those who do it right wins, because users love it.</p>]]></description><link>https://blog.sorpaas.com/you-dont-really-need-to-build-an-app/</link><guid isPermaLink="false">0f78a4bc-4a72-48e4-a688-ab34f9cc2c6a</guid><category><![CDATA[english]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Sat, 27 Sep 2014 16:15:58 GMT</pubDate></item><item><title><![CDATA[Remount Directory under Systemd]]></title><description><![CDATA[<p>Recently I migrated my Linux into Btrfs, everything works fine until I installed docker. I got a wired <em>permission denied</em> failure. It turns out that docker needs to execute some files under <code>/var/lib</code>, but the <code>/var/lib</code> directory is mounted with option <code>noexec</code>.</p>
+
+<p>I once thought this should be a simple problem, and I can just add an <code>exec</code> option into <code>/etc/fstab</code> file and everything should work fine.</p>
+
+<p>However, it is not, the problem is that my <code>/etc/fstab</code> file looks like this:  </p>
+
+<pre><code>UUID=...    /var    btrfsrw,nosuid,nodev,noexec,relatime,space_cache,subvol=__active/var    0 0
+
+UUID=...    /run/btrfs-root btrfs   rw,nosuid,nodev,noexec,relatime,space_cache,subvol  0 0
+
+/run/btrfs-root/__active/ROOT/var/lib    /var/lib    none    bind    0 0
+</code></pre>
+
+<p>The paritition on my Btrfs forces me to mount <code>/run/btrfs-root</code> first, which I wanted a <code>noexec</code> option, and then bind the right folder as <code>/var/lib</code>. The man page of <code>mount</code> indicates that I should first bind the folder, and then remount if I want different mount options.</p>
+
+<p>But the <code>systemd-fstab-generator</code> disallows me to create two items with the same mount destination, so I ended up create a service file under <code>/usr/lib/systemd/system/remount-var-lib.service</code> with the content:  </p>
+
+<pre><code>[Unit]
+Description=Remount /var/lib  
+After=local-fs.target
+
+[Service]
+Type=oneshot  
+RemainAfterExit=yes  
+ExecStart=/bin/mount -o remount,nosuid,nodev /var/lib
+
+[Install]
+WantedBy=multi-user.target  
+</code></pre>
+
+<p>After running <code>systemctl enable remount-var-lib</code> and rebooting, everything is back to normal.</p>]]></description><link>https://blog.sorpaas.com/remount-dictionary-under-systemd/</link><guid isPermaLink="false">c5a1cb9b-da0b-47c0-ade5-d2e5ee0de753</guid><category><![CDATA[english]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Sun, 21 Sep 2014 18:18:00 GMT</pubDate></item><item><title><![CDATA[My Experience for the Jane Street Interview]]></title><description><![CDATA[<p>I have applied for a software engineer intern in Jane Street. The interviewer is <br>
+really nice and helped me through the process, although I knew I might <br>
+have already failed the interview.</p>
+
+<p>I hardly find anything related to the interview, so I am posting <br>
+something here to share my experience and hope it may help others.</p>
+
+<h3 id="howiprepared">How I Prepared</h3>
+
+<p>Before I got the interview opportunity, I had no experience with <br>
+OCaml. And the only thing I did is to work on the <br>
+<a href="http://ocaml.org/learn/tutorials/99problems.html">99 Problems</a> on the
+OCaml website. It helped me with my math, algorithm and things related <br>
+with functional programming theories.</p>
+
+<h3 id="thefirstround">The First Round</h3>
+
+<p>The interview is really straight-forward and we go directly into the <br>
+technical questions. I was able to use any language I like but I chose <br>
+OCaml rather than Ruby, which I am really good at.</p>
+
+<p>I was asked to write a memoization, which can remember the return <br>
+value of a function. I first came up something like this:</p>
+
+<pre><code>let memo (f : ('a -&gt; 'b)) =  
+    let ref dict := [] in
+    fun x -&gt;
+        try List.assoc (f, x) dict with
+            Not_found -&gt; let try val = f x with err -&gt; Error err in
+                         dict := ((f x), val) :: dict;
+                         val;;
+</code></pre>
+
+<p>I told the interviewer that I had no experience with Hashtbl so that <br>
+he wrote an interface of Hashtbl for me and then I rewrote my code <br>
+using that:</p>
+
+<pre><code>let memo (f : ('a -&gt; 'b)) =  
+    let ref dict := Hashtbl.create () in
+    fun x -&gt;
+        try Hashtbl.find (f, x) dict with
+            Not_found -&gt; let try val = f x with err -&gt; Error err in
+                         Hashtbl.add (x, val) dict;
+                         val;;
+</code></pre>
+
+<p>I was then asked what is "wrong" with the above code. I didn't quite <br>
+catch with it so we spent a long time to come up with the idea of <br>
+constant memory and constant lookup time.</p>
+
+<p>I tried to answer using priority queue for it, but in vain since I <br>
+can't keep constant lookup time. At the same time, if I use hash <br>
+table, I can't keep constant memory.</p>
+
+<p>So there's long time of silence when I was thinking of a solution. In <br>
+the end, the interviewer gave me some hints of combining them together <br>
+and it ended up like this:</p>
+
+<pre><code>let memo (f : ('a -&gt; 'b)) =  
+    let ref dict := Hashtbl.create () in
+    let ref q    := Queue.create () in
+    fun x -&gt;
+        try Hashtbl.find (f, x) dict with
+            Not_found -&gt; let try val = f x with err -&gt; Error err in
+                         Hashtbl.add (x, val) dict;
+                         Queue.add x q;
+                         val;;
+</code></pre>
+
+<p>So I didn't get it right without the interviewer's hint, and I've <br>
+failed.</p>
+
+<p>But it is really a nice experience, since you can learn a lot about <br>
+functional programming and all things before and during the <br>
+interview. If you haven't tried to apply for Jane Street, I highly <br>
+recommend to give it a try.</p>
+
+<h3 id="reflection">Reflection</h3>
+
+<p>It requires lots of courage to make things happen. One must prepare well before applying any jobs or internships. I think the most important thing I learnt from this is that there are still many things I don't know, and there are truly amazing people out there in the world. There's still a long way to go, and it's never late to find this out.</p>
+
+<p>Another thing I found out is that the real thing that matters is yourself, your skills and your knowledge, rather than a fancy university name or company name. For most big companies that you want to work with, it's a fair game.</p>]]></description><link>https://blog.sorpaas.com/my-experience-for-the-jane-street-interview/</link><guid isPermaLink="false">2a927bd6-3f2d-4849-b2ae-905ad2d2230a</guid><category><![CDATA[english]]></category><dc:creator><![CDATA[sorpa'as plat]]></dc:creator><pubDate>Sat, 20 Sep 2014 22:50:00 GMT</pubDate></item></channel></rss>
